@@ -8,6 +8,11 @@ class PsychologyDiseaseSpider(scrapy.Spider):
     start_urls= [
         f"{SehatQ}/penyakit/psikologi"
     ]
+    custom_settings = {
+        'ITEM_PIPELINES': {
+            'crawler.pipelines.PsychologyDiseasePipeline': 300
+        }
+    }
 
     def parse(self, response):
         diseases= response.css('div.sc-dxgOiQ.cYiEHD')

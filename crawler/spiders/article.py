@@ -6,6 +6,11 @@ from ..items import ArticleItem
 #scrapyrt: http://localhost:9080/crawl.json?spider_name=articles&start_requests=True&crawl_args=%7B%22pages%22%3A%201%7D
 class ArticleSpider(scrapy.Spider):
     name= 'article'
+    custom_settings = {
+        'ITEM_PIPELINES': {
+            'crawler.pipelines.ArticlePipeline': 300
+        }
+    }
 
     def __init__(self, pages= 1, *args, **kwargs):
         super(ArticleSpider, self).__init__(*args, **kwargs)
