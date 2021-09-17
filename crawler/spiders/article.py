@@ -1,4 +1,5 @@
 import scrapy
+from datetime import datetime
 
 from base_urls import SehatQ
 from ..items import ArticleItem
@@ -36,9 +37,9 @@ class ArticleSpider(scrapy.Spider):
         article['title']= content_wrapper.css('h1.sc-gZMcBi.ktSmQt.poppins::text').get()
         article['short_summary']= content_wrapper.css('span.sc-gZMcBi.gQCEgT::text').get()
         article['author']= content_wrapper.css('a.sc-gZMcBi.sc-kAzzGY.bdXpyA.Anchor-NexLink::text')[0].get()
-        article['posted_at']= content_wrapper.css('span.sc-gZMcBi.hhLaDY::text').get()
+        article['posted_at']= datetime.strptime(content_wrapper.css('span.sc-gZMcBi.hhLaDY::text').get(), '%d %b %Y')
         article['reviewed_by']= content_wrapper.css('a.sc-gZMcBi.sc-kAzzGY.bdXpyA.Anchor-NexLink::text')[0].get()
-
+        
         if len(content_wrapper.css('img.sc-jzJRlG.dQXahA.sc-cmTdod.dEHRBV')) > 0:
             article['header_img']= content_wrapper.css('img.sc-jzJRlG.dQXahA.sc-cmTdod.dEHRBV').attrib['src']
         elif len(content_wrapper.css('img.sc-jzJRlG.dQXahA.sc-jwKygS.edxZPO')) > 0:
