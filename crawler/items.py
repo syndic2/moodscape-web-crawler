@@ -10,13 +10,6 @@ import scrapy
 #    # name = scrapy.Field()
 #    pass
 
-class PsychologyDiseaseItem(scrapy.Item):
-    _id= scrapy.Field()
-    name= scrapy.Field()
-    short_description= scrapy.Field()
-    img_url= scrapy.Field()
-    url= scrapy.Field()
-
 class ArticleItem(scrapy.Item):
     _id= scrapy.Field()
     title= scrapy.Field()
