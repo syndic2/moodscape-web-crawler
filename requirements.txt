@@ -34,7 +34,7 @@ requests==2.27.1
 requests-file==1.5.1
 Scrapy==2.6.1
 scrapyd==1.3.0
-scrapyd-client==1.2.0
+scrapyd-client @ git+https://github.com/iamumairayub/scrapyd-client.git@c4575befa450aa3054c893a8895086d1fb449405
 service-identity==21.1.0
 six==1.16.0
 tldextract==3.2.0

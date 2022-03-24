@@ -6,7 +6,7 @@ from twisted.internet import reactor
 
 def send_request():
     requests.post('https://moodscape-web-crawler.herokuapp.com/schedule.json', data={
-        'project': 'default',
+        'project': 'crawler',
         'spider': 'article'
     })
 
